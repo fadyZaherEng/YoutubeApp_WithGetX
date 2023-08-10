@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: "/", page: () => AppScreen()),
         GetPage(
-          name: "/detail",
+          name: "/details",
           page: () =>YoutubeDetailsScreen(),
         ),
         GetPage(

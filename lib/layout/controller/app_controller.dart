@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:youtube_app/shared/components/youtube_add_video_bottom_sheet.dart';
 
 enum RouteName { Home, CubitVd, Add, DesignPatternsVid, Flutter }
 
@@ -10,16 +11,12 @@ class AppController extends GetxController{
 
   void changePageIndex(int index) {
     if (RouteName.values[index] == RouteName.Add) {
-      _showBottomSheet();
+      YoutubeBottomSheet();
     } else {
       currentIndex(index);
       //equal
       //currentIndex.value=index;
     }
-  }
-
-  void _showBottomSheet() {
-    Get.bottomSheet(Text(""));
   }
 
 }

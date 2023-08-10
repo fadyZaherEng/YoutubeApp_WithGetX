@@ -34,6 +34,7 @@ dependencies:
   cached_network_image:
   shared_preferences:
   hexcolor:
+  conditional_builder_null_safety:
 
 dev_dependencies:
   flutter_test:
