@@ -20,7 +20,7 @@ class CustomAppBar extends StatelessWidget {
           child: Container(
             width: 23,
             height: 23,
-            child: SvgPicture.asset("assets/svg/icons/bell.svg"),
+            child: SvgPicture.asset("assets/svg/icons/bell.svg",color: Colors.white,),
           ),
         ),
         Padding(
@@ -32,7 +32,7 @@ class CustomAppBar extends StatelessWidget {
             child: Container(
               width: 30,
               height: 30,
-              child: SvgPicture.asset("assets/svg/icons/search.svg"),
+              child: SvgPicture.asset("assets/svg/icons/search.svg",color: Colors.white,),
             ),
           ),
         ),

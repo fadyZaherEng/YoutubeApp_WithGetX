@@ -28,7 +28,7 @@ class VideoController extends GetxController {
 
   String get viewContString=>"views ${statistics.value.viewCount??'-'}";
   String get youtuberThumbnailsUrl{
-    if(youtuber.value.snippet!.thumbnails==null){
+    if(youtuber.value.snippet==null){
       return "link";
     }else{
       return youtuber.value.snippet!.thumbnails!.medium!.url;

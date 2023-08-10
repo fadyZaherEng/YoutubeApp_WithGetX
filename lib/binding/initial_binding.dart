@@ -10,8 +10,7 @@ class InitBinding implements Bindings {
   void dependencies() {
     Get.put(YoutuberRepository(), permanent: true);
     Get.put(AppController(),permanent: true);
-    Get.lazyPut<YoutubeDetailsController>(() => YoutubeDetailsController(),fenix: true);
-    Get.lazyPut<SearchYoutubeController>(() => SearchYoutubeController(),fenix: true);
+
 
   }
 }

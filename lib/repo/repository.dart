@@ -18,10 +18,12 @@ class YoutuberRepository extends GetConnect{
         "type=video&videoDefinition=high&key=AIzaSyAC56hVluIwEjTGr1tt3f0YvKUrK9fGECI&pageToken=$nextPageToken";
     final response = await get(url);
     if (response.status.hasError) {
+      print(response.statusText.toString());
       return Future.error(response.statusText.toString());
     } else {
       if (response.body["items"] != null && response.body["items"].length > 0) {
         youtubeResponseBasedQ= YoutubeResponseBasedQ.fromJson(response.body);
+        print("eeeeeeeeeeeeeeeeeeeeeee${youtubeResponseBasedQ.items![0].id!.videoId}");
       }else{
         print(response.body);
       }

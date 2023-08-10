@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:youtube_app/binding/initial_binding.dart';
+import 'package:youtube_app/controllers/search_controller.dart';
+import 'package:youtube_app/controllers/youtube_details_controller.dart';
 import 'package:youtube_app/layout/app_screen/app.dart';
 import 'package:youtube_app/modules/search/search_screen.dart';
 import 'package:youtube_app/modules/youtube_details/youtube_details_screen.dart';
@@ -27,10 +29,16 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: "/details",
           page: () =>YoutubeDetailsScreen(),
+          binding: BindingsBuilder(() {
+            Get.lazyPut<YoutubeDetailsController>(() => YoutubeDetailsController(),fenix: true);
+          }),
         ),
         GetPage(
           name: "/search",
           page: () => SearchVideosScreen(),
+          binding: BindingsBuilder(() {
+            Get.lazyPut<SearchYoutubeController>(() => SearchYoutubeController(),fenix: true);
+          }),
         )
       ],
     );

@@ -29,7 +29,7 @@ class YoutubeDetailsScreen extends GetView<YoutubeDetailsController> {
               Text(" · "),
               Text(
                 DateFormat("yyyy-MM-dd")
-                    .format(controller.video.value.snippet!.publishTime),
+                    .format(controller.video.value.snippet!.publishTime!),
                 style: TextStyle(
                   fontSize: 13,
                   color: Colors.black.withOpacity(0.5),

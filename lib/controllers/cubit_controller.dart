@@ -25,10 +25,7 @@ class CubitController extends GetxController {
     if (youtubeVideoResult != null &&
         youtubeVideoResult.items != null &&
         youtubeVideoResult.items!.isNotEmpty) {
-      youtubeResponseBasedQ.update((youtube) {
-        youtube!.nextPageToken = youtubeVideoResult.nextPageToken;
-        youtube.items!.addAll(youtubeVideoResult.items!);
-      });
+      youtubeResponseBasedQ.value=youtubeVideoResult;
     }
   }
 
