@@ -11,7 +11,7 @@ class AppController extends GetxController{
 
   void changePageIndex(int index) {
     if (RouteName.values[index] == RouteName.Add) {
-      YoutubeBottomSheet();
+      Get.bottomSheet(YoutubeBottomSheet());
     } else {
       currentIndex(index);
       //equal

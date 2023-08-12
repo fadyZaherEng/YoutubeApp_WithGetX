@@ -8,16 +8,25 @@ class YoutubeBottomSheet extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          "اي الدنيا",
-          style: TextStyle(fontSize: 16),
+          "Video Options",
+          style: TextStyle(
+            fontSize: 16,
+            color: Colors.black,
+          ),
         ),
         IconButton(
-          icon: Icon(Icons.close),
-          onPressed: Get.back,
+          icon: Icon(
+            Icons.close,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            Get.back();
+          },
         )
       ],
     );
   }
+
   Widget _itemButton({
     required String icon,
     required double iconSize,
@@ -25,7 +34,7 @@ class YoutubeBottomSheet extends StatelessWidget {
     required Function() onTap,
   }) {
     return InkWell(
-      onTap: onTap,
+      onTap: (){},
       child: Row(
         children: [
           Container(
@@ -44,7 +53,11 @@ class YoutubeBottomSheet extends StatelessWidget {
             ),
           ),
           SizedBox(width: 15),
-          Text(label)
+          Text(
+            label,
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 17, color: Colors.black),
+          )
         ],
       ),
     );
