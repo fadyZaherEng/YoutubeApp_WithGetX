@@ -7,21 +7,20 @@ import 'package:youtube_app/models/youtube_model_based_q/Item.dart';
 class VideoWidget extends StatefulWidget {
   final Video video;
 
-  const VideoWidget({required this.video});
+  VideoWidget({required this.video});
 
   @override
-  _VideoWidgetState createState() => _VideoWidgetState();
+  State<VideoWidget> createState() => _VideoWidgetState();
 }
 
 class _VideoWidgetState extends State<VideoWidget> {
-  VideoController? _videoController;
-
+  VideoController? videoController;
   @override
   void initState() {
-    _videoController = Get.put(VideoController(video: widget.video));
+    // TODO: implement initState
     super.initState();
+    videoController=Get.put(VideoController(video: widget.video),tag: widget.video.id!.videoId);
   }
-
   Widget _thumbnail() {
     return Container(
       height: 230,
@@ -42,7 +41,7 @@ class _VideoWidgetState extends State<VideoWidget> {
               radius: 30,
               backgroundColor: Colors.grey.withOpacity(0.5),
               backgroundImage:
-                  Image.network(_videoController!.youtuberThumbnailsUrl).image),
+                  Image.network(videoController!.youtuberThumbnailsUrl).image),
           SizedBox(width: 15),
           Expanded(
             child: Column(
@@ -65,7 +64,7 @@ class _VideoWidgetState extends State<VideoWidget> {
                     ),
                     Text(" · "),
                     Text(
-                      "views ${_videoController!.statistics.value.viewCount ?? '-'}",
+                      "views ${videoController!.statistics.value.viewCount ?? '-'}",
                     ),
                     Text(" · "),
                     Text(
@@ -86,10 +85,10 @@ class _VideoWidgetState extends State<VideoWidget> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => Column(
-      children: [
-        _thumbnail(),
-        _simpleDetailinfo(),
-      ],
-    ));
+          children: [
+            _thumbnail(),
+            _simpleDetailinfo(),
+          ],
+        ));
   }
 }

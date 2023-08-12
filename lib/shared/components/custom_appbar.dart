@@ -20,7 +20,8 @@ class CustomAppBar extends StatelessWidget {
           child: Container(
             width: 23,
             height: 23,
-            child: SvgPicture.asset("assets/svg/icons/bell.svg",color: Colors.white,),
+            color: Colors.white,
+            child: SvgPicture.asset("assets/svg/icons/bell.svg",),
           ),
         ),
         Padding(
@@ -30,9 +31,10 @@ class CustomAppBar extends StatelessWidget {
               Get.toNamed("/search");
             },
             child: Container(
+              color: Colors.white,
               width: 30,
               height: 30,
-              child: SvgPicture.asset("assets/svg/icons/search.svg",color: Colors.white,),
+              child: SvgPicture.asset("assets/svg/icons/search.svg",),
             ),
           ),
         ),
@@ -47,6 +49,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
         color: Colors.white,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

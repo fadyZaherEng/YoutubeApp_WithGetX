@@ -7,6 +7,7 @@ import 'package:youtube_app/models/youtube_videos_statistics/YoutubeVideosStatis
 import 'package:youtube_app/repo/repository.dart';
 
 class VideoController extends GetxController {
+  static VideoController get of=>Get.find();
   Video video;
   VideoController({required this.video});
 
@@ -19,7 +20,7 @@ class VideoController extends GetxController {
     YoutubeVideosStatistics youtubeVideosStatistics =
         await YoutuberRepository.to.getVideosInfoById(video.id!.videoId);
     statistics(youtubeVideosStatistics.items![0].statistics);
-
+    print("hhhhhhhhhhhhhhhhhhhhhhhh${statistics.value.viewCount}");
     YoutubeResponseChannelInfo youtubeResponseChannelInfo =
         await YoutuberRepository.to
             .getChannelInfoById(video.snippet!.channelId);

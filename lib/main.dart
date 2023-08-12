@@ -27,17 +27,17 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: "/", page: () => AppScreen()),
         GetPage(
-          name: "/details",
+          name:"/detail/:videoId",
           page: () =>YoutubeDetailsScreen(),
           binding: BindingsBuilder(() {
-            Get.lazyPut<YoutubeDetailsController>(() => YoutubeDetailsController(),fenix: true);
+            Get.lazyPut<YoutubeDetailsController>(()=>YoutubeDetailsController());
           }),
         ),
         GetPage(
           name: "/search",
           page: () => SearchVideosScreen(),
           binding: BindingsBuilder(() {
-            Get.lazyPut<SearchYoutubeController>(() => SearchYoutubeController(),fenix: true);
+            Get.lazyPut<SearchYoutubeController>( ()=>SearchYoutubeController());
           }),
         )
       ],

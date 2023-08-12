@@ -13,7 +13,7 @@ class YoutubeDetailsController extends GetxController{
 
   @override
   void onInit() {
-    VideoController videoController = Get.find();
+    VideoController videoController = Get.find(tag: Get.parameters["videoId"]);
     video(videoController.video);
     statistics(videoController.statistics.value);
     youtuber(videoController.youtuber.value);

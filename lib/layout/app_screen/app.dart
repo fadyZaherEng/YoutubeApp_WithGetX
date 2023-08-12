@@ -6,6 +6,7 @@ import 'package:youtube_app/modules/allvideos_screen/home.dart';
 import 'package:youtube_app/modules/cubit_screen/cubit_screen.dart';
 import 'package:youtube_app/modules/designpatterns_screen/designpatterns.dart';
 import 'package:youtube_app/modules/flutter_screen/flutter_screen.dart';
+import 'package:youtube_app/shared/components/custom_appbar.dart';
 
 class AppScreen extends StatelessWidget {
   final controller = AppController.to;
@@ -13,6 +14,10 @@ class AppScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        flexibleSpace: Container(margin:EdgeInsets.only(top: 30),child: CustomAppBar()),
+      ),
       body: Obx(
         () {
           switch (RouteName.values[controller.currentIndex.value]) {

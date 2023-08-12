@@ -10,7 +10,5 @@ class InitBinding implements Bindings {
   void dependencies() {
     Get.put(YoutuberRepository(), permanent: true);
     Get.put(AppController(),permanent: true);
-
-
   }
 }
