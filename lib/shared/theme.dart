@@ -14,7 +14,7 @@ ThemeData lightTheme()=>ThemeData(
     ),
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarColor: Colors.white,
-      statusBarIconBrightness: Brightness.dark,
+      statusBarIconBrightness: Brightness.light,
     ),
     iconTheme: IconThemeData(
       color: Colors.indigo,
@@ -72,14 +72,14 @@ ThemeData darkTheme()=>ThemeData(
       color: Colors.blueAccent,
     ),
     systemOverlayStyle: SystemUiOverlayStyle(
-      statusBarColor: HexColor('000028'),
-      statusBarIconBrightness: Brightness.light,
+      statusBarColor:Colors.white,
+      statusBarIconBrightness: Brightness.dark,
     ),
-    iconTheme: const IconThemeData(
-      color: Colors.blueAccent,
+    iconTheme:  IconThemeData(
+      color: HexColor('000028'),
     ),
-    actionsIconTheme: const IconThemeData(
-      color: Colors.blueAccent,
+    actionsIconTheme:  IconThemeData(
+      color: HexColor('000028'),
     ),
   ),
   bottomNavigationBarTheme:  BottomNavigationBarThemeData(
