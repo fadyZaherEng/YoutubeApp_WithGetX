@@ -12,7 +12,7 @@ class SearchYoutubeController extends GetxController {
   ScrollController scrollController = ScrollController();
   static SearchYoutubeController get to => Get.find();
   String key = "searchKey";
-  RxList<String> history = RxList<String>.empty(growable: true);
+  List<String> history =[];
   SharedPreferences? _profs;
   String _currentKeyword="";
 
@@ -20,11 +20,11 @@ class SearchYoutubeController extends GetxController {
   void onInit() async {
     _event();
     _profs = await SharedPreferences.getInstance();
-    RxList<String> initData = (_profs!.get(key) ?? []) as RxList<String>;
+    List<String> initData = _profs!.getStringList(key) ?? [];
     //first
     //history.value=RxList.from(initData);
     //or
-    history(RxList.from(initData));
+    history=List.from(initData);
     //or
     //history(initData.map<String>((_) => _.toString()).toList());
     super.onInit();

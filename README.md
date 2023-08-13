@@ -1,16 +1,17 @@
 # youtube_app
 
-Youtube
+Youtube App
 
-## Getting Started
+Tools
+-Api -->Dio
+-Getx -->MVC with all features of Getx
+-Youtube Player
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Methods
+-get All videos onYoutube
+-Get video from my channel for(cubit,designPatterns,Flutter)
+-Search on Videos In My Youtube
+-Display Statistics and snippet about Channel or Youtuber
+-Display Statistics about videos as title ,viewCount,Subscribe,
+likes,disLikes,description,youtuber Profile
+-Display Videos on Youtube Player

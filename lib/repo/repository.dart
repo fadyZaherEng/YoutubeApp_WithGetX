@@ -14,7 +14,7 @@ class YoutuberRepository extends GetConnect{
   Future<YoutubeResponseBasedQ> loadVideos(String nextPageToken) async {
     YoutubeResponseBasedQ? youtubeResponseBasedQ;
     String url =
-        "youtube/v3/search?part=snippet&channelId=UCZQ-IQJod-Dy7VIOX7jbaiw&maxResults=10000&order=date&"
+        "youtube/v3/search?part=snippet&maxResults=10000&order=date&"
         "type=video&videoDefinition=high&key=AIzaSyAC56hVluIwEjTGr1tt3f0YvKUrK9fGECI&pageToken=$nextPageToken";
     final response = await get(url);
     if (response.status.hasError) {
@@ -85,7 +85,7 @@ class YoutuberRepository extends GetConnect{
   Future<YoutubeResponseBasedQ> searchVideos(String nextPageToken,String q) async {
     YoutubeResponseBasedQ? youtubeResponseBasedQ;
     String url =
-        "youtube/v3/search?part=snippet&channelId=UCZQ-IQJod-Dy7VIOX7jbaiw&maxResults=10000&order=date&"
+        "youtube/v3/search?part=snippet&maxResults=10000&order=date&"
         "type=video&q=$q&videoDefinition=high&key=AIzaSyAC56hVluIwEjTGr1tt3f0YvKUrK9fGECI&pageToken=$nextPageToken";
     final response = await get(url);
     if (response.status.hasError) {
@@ -97,7 +97,7 @@ class YoutuberRepository extends GetConnect{
         print(response.body);
       }
     }
-    return youtubeResponseBasedQ!;
+    return youtubeResponseBasedQ==null?YoutubeResponseBasedQ():youtubeResponseBasedQ!;
   }
   //videos info
   Future<YoutubeVideosStatistics> getVideosInfoById(String videoId) async {

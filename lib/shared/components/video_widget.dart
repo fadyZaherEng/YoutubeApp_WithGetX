@@ -59,10 +59,15 @@ class _VideoWidgetState extends State<VideoWidget> {
                 ),
                 Row(
                   children: [
-                    Text(
-                      widget.video.snippet!.channelTitle,
+                    Flexible(
+                      child: Text(
+                        widget.video.snippet!.channelTitle,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                    Text(" · "),
+                   // Text(" · "),
+                    SizedBox(width: 5,),
                     Text(
                       "views ${videoController!.statistics.value.viewCount ?? '-'}",
                     ),
