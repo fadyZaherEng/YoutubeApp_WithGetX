@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_use_of_protected_member, deprecated_member_use, must_be_immutable
+
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -98,29 +100,29 @@ class SearchVideosScreen extends GetView<SearchYoutubeController> {
 
   _searchResultView(BuildContext context) {
     return ConditionalBuilder(
-      condition: controller!.youtubeResponseBasedQ.value.items != null &&
-          controller!.youtubeResponseBasedQ.value.items!.isNotEmpty,
+      condition: controller.youtubeResponseBasedQ.value.items != null &&
+          controller.youtubeResponseBasedQ.value.items!.isNotEmpty,
       builder: (context) => CustomScrollView(
-        controller: controller!.scrollController,
+        controller: controller.scrollController,
         slivers: [
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
                 Get.put(
                     VideoController(
-                        video: controller!
+                        video: controller
                             .youtubeResponseBasedQ.value.items![index]),
-                    tag: controller!
+                    tag: controller
                         .youtubeResponseBasedQ.value.items![index].id!.videoId);
                 return InkWell(
                   onTap: () async {
                     Get.toNamed(
-                        "/detail/${controller!.youtubeResponseBasedQ.value.items![index].id!.videoId}");
+                        "/detail/${controller.youtubeResponseBasedQ.value.items![index].id!.videoId}");
                   },
                   child: Column(
                     children: [
                       VideoWidget(
-                        video: controller!
+                        video: controller
                             .youtubeResponseBasedQ.value.items![index],
                       ),
                       Container(
@@ -131,7 +133,7 @@ class SearchVideosScreen extends GetView<SearchYoutubeController> {
                   ),
                 );
               },
-              childCount: controller!.youtubeResponseBasedQ.value.items!.length,
+              childCount: controller.youtubeResponseBasedQ.value.items!.length,
             ),
           ),
         ],
