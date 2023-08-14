@@ -12,28 +12,31 @@ class SearchYoutubeController extends GetxController {
   ScrollController scrollController = ScrollController();
   static SearchYoutubeController get to => Get.find();
   String key = "searchKey";
-  List<String> history =[];
+  RxList<String> history = RxList<String>.empty(growable: true);
   SharedPreferences? _profs;
   String _currentKeyword="";
 
   @override
   void onInit() async {
     _event();
+    List<dynamic> initData = _profs?.getStringList(key) ?? [];
+    history(initData.map<String>((_) => _.toString()).toList());
     _profs = await SharedPreferences.getInstance();
-    List<String> initData = _profs!.getStringList(key) ?? [];
+   // List<String> initData = _profs!.getStringList(key) ?? [];
     //first
     //history.value=RxList.from(initData);
     //or
-    history=List.from(initData);
+    //history=List.from(initData) as Rx<RxList<String>>;
     //or
     //history(initData.map<String>((_) => _.toString()).toList());
     super.onInit();
   }
   void submitSearch(String searchKey) {
     history.addIf(!history.contains(searchKey), searchKey);
-    _profs!.setStringList(key, history);
+    _profs?.setStringList(key, history);
     _currentKeyword = searchKey;
     _searchVideos(searchKey);
+    update();
   }
 
   void _searchVideos(String searchKey) async {

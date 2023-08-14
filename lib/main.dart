@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           name: "/search",
           page: () => SearchVideosScreen(),
           binding: BindingsBuilder(() {
-            Get.lazyPut<SearchYoutubeController>( ()=>SearchYoutubeController());
+            Get.put(SearchYoutubeController(),permanent: true);
           }),
         )
       ],

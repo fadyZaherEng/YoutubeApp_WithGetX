@@ -33,11 +33,13 @@ class SearchVideosScreen extends GetView<SearchYoutubeController> {
                   Icons.search,
                   color: Colors.black,
                 ),
-                label: Text("Search",style: TextStyle(color: Colors.black),),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none
+                label: Text(
+                  "Search",
+                  style: TextStyle(color: Colors.black),
                 ),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none),
               ),
               onFieldSubmitted: (key) {
                 controller.submitSearch(key);
@@ -51,7 +53,7 @@ class SearchVideosScreen extends GetView<SearchYoutubeController> {
         () => controller.youtubeResponseBasedQ.value.items != null &&
                 controller.youtubeResponseBasedQ.value.items!.length > 0
             ? _searchResultView(context)
-            : (controller.history.isNotEmpty)
+            : (controller.history.value.length > 0)
                 ? _searchHistory(context)
                 : Center(
                     child: Text(
@@ -68,7 +70,7 @@ class SearchVideosScreen extends GetView<SearchYoutubeController> {
 
   _searchHistory(BuildContext context) {
     return ListView(
-      children: controller.history
+      children: controller.history.value
           .map(
             (element) => ListTile(
               onTap: () {
