@@ -17,6 +17,7 @@ class SearchVideosScreen extends GetView<SearchYoutubeController> {
         leading: IconButton(
           icon: SvgPicture.asset("assets/svg/icons/back.svg"),
           onPressed: () {
+            controller.youtubeResponseBasedQ.value.items=[];
             Get.back();
           },
         ),
