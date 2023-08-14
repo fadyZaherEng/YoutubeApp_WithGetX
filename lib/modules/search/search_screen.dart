@@ -42,9 +42,9 @@ class SearchVideosScreen extends GetView<SearchYoutubeController> {
               onFieldSubmitted: (key) {
                 controller.submitSearch(key);
               },
-              onChanged: (key) {
-                controller.submitSearch(key);
-              },
+              // onChanged: (key) {
+              //   controller.submitSearch(key);
+              // },
             )),
       ),
       body: Obx(
